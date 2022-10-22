@@ -1,0 +1,10 @@
+#main {
+    background: radial-gradient(white, blue);  
+  }
+  #main p a{
+  text-decoration: none;
+  font-size: 35px;
+  }
+  #main2 {
+    margin: 150px;
+  }
