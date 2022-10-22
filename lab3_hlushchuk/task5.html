@@ -1,0 +1,86 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Завдання 5</title>
+</head>
+<style>
+    #check {
+  font-size: 15px;
+}
+
+button {
+  margin-block: 2px;
+}
+</style>
+<body onload="next_question()">
+    <div id="main_div">
+
+        <div class="row">
+            <span id="QuestionNumber"></span>
+            <span id="CorrectAnswers"></span>
+            <span id="SummOfCorrectAnswers"></span>
+        </div>
+        <br>
+
+        <div class="row">
+            <span id="question"></span>
+            <input id="input" type="text">
+        </div>
+
+        <div class="row">
+            <h4 id="check"></h4>
+        </div>
+
+        <div class="row" onclick="check()">
+            <button>Відповісти</button>
+
+        </div>
+
+        <div class="row" onclick="next_question()">
+            <button>Наступне питання</button>
+        </div>
+    </div>
+
+<script>
+    let numberOfTask = 0;
+      let first_num, second_num;
+      let correct_answers = 0;
+
+function next_question() {
+    if (numberOfTask == 10) {
+        location.href=location.href; // обнуляєм результат коли пройшли 10-е питання
+    }
+    numberOfTask += 1;
+    document.getElementById("input").value = "";
+    document.getElementById("check").innerHTML = "";
+    first_num = generate_rand_value();
+    second_num = generate_rand_value();
+    document.getElementById("question").innerHTML = first_num + " * " + second_num + " = ";
+    document.getElementById("CorrectAnswers").innerHTML = "Загальний рахунок " + parseInt(correct_answers * 100 / 10) + "% |";
+    document.getElementById("SummOfCorrectAnswers").innerHTML = "(" + correct_answers + " правильних відповідей з 10) |";
+    document.getElementById("QuestionNumber").innerHTML = "Питання №" + numberOfTask + " |";
+}
+
+function generate_rand_value() {
+    return parseInt(Math.random() * (10 - 1) + 1);
+}
+
+function check() {
+    let value = document.getElementById("input").value;
+    if (value == (first_num * second_num)) {
+        document.getElementById("check").innerHTML = "Правильна відповідь";
+        correct_answers += 1;
+    }
+    else {
+        document.getElementById("check").innerHTML = "Неправильна відповідь";
+    }
+}
+
+
+
+</script>
+</body>
+</html>

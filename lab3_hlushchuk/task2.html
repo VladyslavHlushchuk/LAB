@@ -1,0 +1,54 @@
+<html lang="ua">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Завдання 2</title>
+</head>
+
+<style>
+
+button {
+  width: 100px;
+  height: 40px;
+  color: red;
+}
+
+#virtualKeyboard {
+  height: 200px;
+  font-size: 20px;
+}
+</style>
+
+<body onload="VirtualKeyboard()">
+<div class="main">
+    <textarea id="virtualKeyboard" rows="3" cols="50" readonly></textarea>
+    <br>
+    <button class="resetButton" onclick="clearText()">Очистити поле</button>
+    <div id="keyboard"></div>
+</div>
+
+<script>
+    const UkrainianAlphabet = ["а", "б", "в", "г", "ґ", "д", "е", "є", "ж", "з", "и", "і", "ї", "й", "к", "л", "м", "н", "о", "п", "р", "с", "т", "у", "ф", "х", "ц", "ч", "ш", "щ", "ь", "ю", "я"];
+
+VirtualKeyboard = () => {
+    let keyboard = "";
+    UkrainianAlphabet.map((letter,index) => {
+        if(index % 12 === 0) keyboard += "<br>"
+        keyboard += `<button onclick="addLetter('${letter}')">${letter}</button>`
+    })
+    document.getElementById("keyboard").innerHTML = keyboard;
+}
+
+clearText = () => {
+    document.getElementById("virtualKeyboard").value = "";
+}
+
+addLetter = (letter) => {
+    document.getElementById("virtualKeyboard").value += letter;
+}
+
+</script>
+</body>
+</html>

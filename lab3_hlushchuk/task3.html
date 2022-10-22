@@ -1,0 +1,78 @@
+<html lang="ua">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Завдання 3</title>
+</head>
+
+<style>
+    
+button {
+  width: 100px;
+  height: 40px;
+  color: red;
+}
+
+#virtualKeyboard {
+  height: 200px;
+  font-size: 20px;
+}
+</style>
+
+<body onload="VirtualKeyboard()">
+<div class="main">
+    <textarea id="virtualKeyboard" rows="3" cols="50" readonly></textarea>
+    <br>
+    <button class="resetButton" onclick="clearText()">Очистити поле</button>
+    <div id="keyboard"></div>
+</div>
+
+<script>
+    const UkrainianAlphabet = ["а", "б", "в", "г", "ґ", "д", "е", "є", "ж", "з", "и", "і", "ї", "й", "к", "л", "м", "н", "о", "п", "р", "с", "т", "у", "ф", "х", "ц", "ч", "ш", "щ", "ь", "ю", "я"];
+const EnglishAlpabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+
+//  => ( function(): void ) 
+
+VirtualKeyboard = () => {
+    let keyboard = "";
+    language = document.documentElement.lang;
+    if (language === "ua") {
+        UkrainianAlphabet.map((letter, index) => {
+            if (index % 12 === 0) keyboard += "<br>";
+            keyboard += `<button onclick="addLetter('${letter}')">${letter}</button>`;
+        })
+    } 
+    else {
+        EnglishAlpabet.map((letter, index) => {
+            if (index % 12 === 0) keyboard += "<br>";
+            keyboard += `<button onclick="addLetter('${letter}')">${letter}</button>`;
+        })
+    }
+    keyboard += `<button onclick="EnglishKeyboard()">Alt + Shift</button>`;
+    document.getElementById("keyboard").innerHTML = keyboard;
+}
+
+clearText = () => {
+    document.getElementById("virtualKeyboard").value = "";
+}
+
+addLetter = (letter) => {
+    document.getElementById("virtualKeyboard").value += letter;
+}
+
+EnglishKeyboard = () => {
+    currentLang = document.documentElement.lang;
+    if (currentLang === "ua") {
+        document.documentElement.setAttribute('lang', "eng");
+    } else {
+        document.documentElement.setAttribute('lang', "ua");
+    }
+    VirtualKeyboard();
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<html>
+
+<head>
+  <script>
+    function fun() {
+      let t_x, y, sum = 0.0,
+        i = 0.0,
+        cur = 0.0;
+      x = parseInt(main_form.t_x.value);
+      y = parseInt(main_form.t_y.value);
+      let to4nost = 0.001;
+      do {
+        i++;
+        let factorial = 1;
+        for (let  i = 3; i <= 5; i++)
+          factorial *= j;
+        cur = (((-1)^i*(((2*x)*y - 1*x*2)/(i + 2)))*factorial(i));
+        sum += cur;
+      } while (cur > to4nost)
+      main_form.t_c.value = "" + sum;
+    }
+  </script>
+</head>
+
+<body>
+  <form id="main_form">
+    x<input type="text" id="t_x" value="10"><br>
+    y<input type="text" id="t_y" value="-2"><br> 
+    Результат<input type="text" id="t_c" value=""><br>
+    <input type="button" onClick="fun();" value="Розрахувати">
+  </form>
+</body>
+
+</html>

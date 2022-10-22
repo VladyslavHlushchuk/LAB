@@ -1,0 +1,51 @@
+<html lang="ua">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Завдання 1</title>
+</head>
+<body>
+<div class="main">
+    <form id="main_form">
+        <input type="text" id="length" placeholder="Введіть довжину..." onchange="calculate()">
+        <br>
+        <br>
+        <input type="text" id="width" placeholder="Введіть ширину..." onchange="calculate()">
+        <br>
+        <br>
+        <div class="spanBlock">
+            <div>
+                <span>Периметр:</span>
+                <span id="perimeter"></span>
+            </div>
+            <div>
+                <span>Площа:</span>
+                <span id="area"></span>
+            </div>
+            <div>
+                <span>Довжина діагоналі:</span>
+                <span id="diagonal"></span>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    calculate = () => {
+    let length = +document.getElementById("length").value;
+    let width = +document.getElementById("width").value;
+
+    let perimeter = (length + width) * 2;
+    let area = length * width;
+    let diagonal = Math.sqrt(length**2 + width**2);
+
+    document.getElementById("perimeter").innerText = perimeter;
+    document.getElementById("area").innerText = area;
+    document.getElementById("diagonal").innerText = diagonal;
+}
+
+</script>
+</body>
+</html>

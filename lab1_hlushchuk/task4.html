@@ -1,0 +1,24 @@
+<html>
+<head>
+<script>
+function fun()
+{
+let a, b, c, d;
+x = parseInt(main_form.t_a.value);
+y = parseInt(main_form.t_b.value);
+if(x>0) F=3*x*y; else
+if((x<0)&(y>(3/2))) F=2*(x/y); else
+F=(x**2)+(y**3);
+main_form.t_d.value = "" + F;
+}
+</script>
+</head>
+<body>
+<form id = "main_form">
+x<input type="text" id = "t_a" value="3"><br>
+y<input type="text" id = "t_b" value="2"><br>
+F<input type="text" id = "t_d" value=""><br>
+<input type = "button" onClick = "fun();" value = "Розрахувати">
+</form>
+</body>
+</html>
