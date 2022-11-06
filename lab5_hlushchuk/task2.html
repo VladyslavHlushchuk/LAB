@@ -1,0 +1,114 @@
+<html>
+
+<head>
+    <meta char-set=utf8>
+    </meta>
+    <link rel="stylesheet" type="text/css" href="./css/style2.css">
+    <title>Лабораторна 5</title>
+
+    <script>
+        function tabSwitch(new_tab, new_tab2, new_content) {
+
+            document.getElementById('content_1').style.display = 'none';
+            document.getElementById('content_2').style.display = 'none';
+            document.getElementById('content_3').style.display = 'none';
+            document.getElementById('content_4').style.display = 'none';
+            document.getElementById(new_content).style.display = 'block';
+
+            document.getElementById('tab_1').className = '';
+            document.getElementById('tab_2').className = '';
+            document.getElementById('tab_3').className = '';
+            document.getElementById('tab_4').className = '';
+            document.getElementById(new_tab).className = 'active';
+
+            document.getElementById('tab_5').className = '';
+            document.getElementById('tab_6').className = '';
+            document.getElementById('tab_7').className = '';
+            document.getElementById('tab_8').className = '';
+            document.getElementById(new_tab2).className = 'active';
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="tabbed_box">
+        <!-- <h4>Browse Site <small>Select a Tab</small></h4>  -->
+        <div class="tabbed_area">
+
+
+            <table id="the_table" width="100%" style="background: url(./img/background2.jpg) no-repeat center center ;">
+
+                <tr>
+                    <td colspan="4" style="color: white;">
+                        <center>Мої одногрупники</center>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="javascript:tabSwitch('tab_1', 'tab_5', 'content_1');"><img src="./img/misha.jpg"
+                                id="tab_5" alt="Зображення недоступне" width="80%"></a>
+                    </td>
+                    <td><a href="javascript:tabSwitch('tab_2', 'tab_6', 'content_2');"><img src="./img/vasya.jpg"
+                                id="tab_6" alt="Зображення недоступне" width="80%"></a>
+                    </td>
+                    <td><a href="javascript:tabSwitch('tab_3', 'tab_7', 'content_3');"><img src="./img/zamlinskiy.jpg"
+                                id="tab_7" alt="Зображення недоступне" width="80%"></a>
+                    </td>
+                    <td><a href="javascript:tabSwitch('tab_4', 'tab_8', 'content_4');"><img src="./img/roman.jpg"
+                                id="tab_8" alt="Зображення недоступне" width="80%"></a>
+                    </td>
+                </tr>
+
+                <tr class="names" align="center">
+                    <td id="tab_1"><a href="javascript:tabSwitch('tab_1', 'tab_5', 'content_1');">Келець Михайло</a></td>
+                    <td id="tab_2"><a href="javascript:tabSwitch('tab_2', 'tab_6', 'content_2');">Вінтоняк Василь</a></td>
+                    <td id="tab_3"><a href="javascript:tabSwitch('tab_3', 'tab_7', 'content_3');">Замлинський Іван</a></td>
+                    <td id="tab_4"><a href="javascript:tabSwitch('tab_4', 'tab_8', 'content_4');">Вінтоняк Роман</a></td>
+                </tr>
+            </table>
+
+
+            <div id="content_1" class="content">
+                <p>
+                <h2>Келець Михайло</h2>
+                </p>
+                <p>Дата народження: 23.12.2003 </p>
+                <p id="task3phon">Поштова скринька : <a
+                        href="mykhailo.kelets.21@pnu.edu.ua">mykhailo.kelets.21@pnu.edu.ua</a></p>
+            </div>
+            <div id="content_2" class="content">
+                <p>
+                <h2>Вінтоняк Василь</h2>
+                </p>
+                <p>Дата народження: 29.03.2004 </p>
+                <p id="task3phon">Поштова скринька : <a
+                        href="mailto: vasyl.vintoniak.21@pnu.edu.ua">vasyl.vintoniak.21@pnu.edu.ua</a></p>
+
+            </div>
+            <div id="content_3" class="content">
+                <p>
+                <h2>Замлинський Іван</h2>
+                </p>
+                <p>Дата народження: 20.01.2004 </p>
+                <p id="task3phon">Поштова скринька : <a
+                        href="mailto: ivan.zamlynskyi.21@pnu.edu.ua">ivan.zamlynskyi.21@pnu.edu.ua</a></p>
+            </div>
+            <div id="content_4" class="content">
+                <p>
+                <h2>Вінтоняк Роман</h2>
+                </p>
+                <p>Дата народження: 16.09.2003 </p>
+                <p id="task3phon">Поштова скринька : <a
+                        href="mailto: roman.vintoniak.21@pnu.edu.ua">roman.vintoniak.21@pnu.edu.ua</a></p>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+</body>
+
+</html>
