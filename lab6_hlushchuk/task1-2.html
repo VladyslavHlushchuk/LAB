@@ -1,0 +1,206 @@
+<html>
+
+<head>
+	<meta char-set=utf8>
+	</meta>
+	<link rel="stylesheet" type="text/css">
+<!-- CSS only -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<!-- JavaScript Bundle with Popper -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+		crossorigin="anonymous"></script> 
+
+	<title>Лабораторна 6</title>
+
+
+</head>
+
+<body style="background-color: #5e85c9;">
+
+	<script type="text/javascript">
+		let s = "vladyslav.hlushchuk.21@pnu.edu.ua";
+		let r = /^([a-z0-9]+)(\.[a-z0-9]+)*@([a-z0-9]+)(\.[a-z0-9]+)*$/i;
+		let a = s.match(r);
+
+		res = '<div class="container" style="padding-top: 3%;"><div class="accordion" id="accordionExample" style="padding-left: 25%; width: 75%;"><div class="accordion-item"><h2 class="accordion-header" id="headingOne"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Завдання 2.1</button></h2><div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample"><div class="accordion-body">'
+
+		for (i = 0; i < a.length; i++) {
+			res += ("<hr> a[" + i + "] " + a[i]);
+		}
+		res += '  </div></div></div></div>'
+		document.writeln(res)
+	</script>
+
+	<div class="container" style="padding-top: 3%;">
+		<form action="#" method="get">
+			<div class="input-group mb-3" style="padding-left: 25%; width: 75%;">
+				<input type="text" required="required" class="form-control" placeholder="Ім'я" aria-label="Username"
+					id="first_name" onblur="check_first_second_Name('first_name');first_second_name('first_name');"
+					onkeyup="check_first_second_Name('first_name');first_second_name('first_name');"
+					onkeypress="check_first_second_Name('first_name');first_second_name('first_name');">
+
+				<span id="s_first_name"></span>
+			</div>
+
+			<div class="input-group mb-3" style="padding-left: 25%; width: 75%;">
+				<input type="text" required="required" class="form-control" placeholder="Прізвище"
+					aria-label="Second name" id="second_name"
+					onblur="check_first_second_Name('second_name');first_second_name('second_name');"
+					onkeyup="check_first_second_Name('second_name');first_second_name('second_name');"
+					onkeypress="check_first_second_Name('second_name');first_second_name('second_name');">
+				<span id="s_second_name"></span>
+			</div>
+
+			<div class="input-group mb-3" style="padding-left: 25%; width: 75%;">
+				<input type="text" required="required" class="form-control" placeholder="Логін" aria-label="Login"
+					id="login" onblur="check_login_fix();check_login();" onkeyup="check_login_fix();check_login();"
+					onkeypress="check_login_fix();check_login();">
+				<span id="s_login"></span>
+			</div>
+
+			<div class="input-group mb-3" style="padding-left: 25%; width: 75%;">
+				<input type="password" required="required" class="form-control" placeholder="Пароль" id="password"
+					onblur="password_check();" onkeyup="password_check();" onkeypress="password_check();">
+				<span id="s_password"></span>
+			</div>
+
+			<div class="input-group mb-3" style="padding-left: 25%; width: 75%;">
+				<input type="number" required="required" class="form-control" placeholder="Поштовий індекс" id="index"
+					onblur="index_check();" onkeyup="index_check();" onkeypress="index_check();">
+				<span id="s_index"></span>
+			</div>
+
+			<div class="input-group mb-3" style="padding-left: 25%; width: 75%;">
+				<input type="email" required="required" class="form-control" placeholder="Електронна пошта" id="email"
+					onblur="email_check()" onkeyup="email_check()" onkeypress="email_check()">
+				<span id="s_email"></span>
+			</div>
+
+
+
+
+
+			<div class="col-12" style="padding-left: 25%;">
+				<input type="submit" onClick="check_form()" value="Відправити" id="check">
+			</div>
+		</form>
+
+
+
+</body>
+
+
+<script>
+
+	function check_first_second_Name(name) {
+		let str = document.getElementById(name);
+		str.value = str.value.replace(/[^a-zA-Zа-яА-ЯіІїЇ]/g, '');
+		str.value = str.value.charAt(0).toUpperCase() + str.value.slice(1).toLowerCase();
+
+	}
+
+	function first_second_name(name) {
+		let str = document.getElementById(name);
+		if ((str.value).match(/[A-Z, А-ЯІЇ][a-zA-Zа-яА-ЯіІїЇ]*/) == null) {
+			str.style = "border: 5px double red; color : red;";
+			document.getElementById("s_" + name).innerHTML = "❌";
+			return 0;
+		}
+		else {
+			str.style = "border: 2px solid green; color : black;";
+			document.getElementById("s_" + name).innerHTML = "✔";
+			return 1;
+		}
+	}
+
+
+
+
+	function check_login_fix() {
+		let str = document.getElementById('login');
+		str.value = str.value.replace(/[^a-zA-Z]/g, '');
+		str.value = str.value.charAt(0).toUpperCase() + str.value.slice(1).toLowerCase();
+	}
+
+	function index_check() {
+		let str = document.getElementById('index');
+		if ((str.value).match(/^[0-9]{5}$/) == null) {
+			str.style = "border: 5px double red; color : red;";
+			document.getElementById("s_index").innerHTML = "❌";
+			return 0;
+		}
+		else {
+			str.style = "border: 2px solid green; color : black;";
+			document.getElementById("s_index").innerHTML = "✔";
+			return 1;
+		}
+	}
+
+	function check_login() {
+		let str = document.getElementById('login');
+		if ((str.value).match(/^[a-zA-Z]+$/) == null) {
+			str.style = "border: 5px double red; color : red;";
+			document.getElementById("s_login").innerHTML = "❌";
+			return 0;
+		}
+		else {
+			str.style = "border: 2px solid green; color : black;";
+			document.getElementById("s_login").innerHTML = "✔";
+			return 1;
+		}
+	}
+
+	function password_check() {
+		let str = document.getElementById('password');
+		if ((str.value).match(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/) == null) {
+			str.style = "border: 5px double red; color : red;";
+			document.getElementById("s_password").innerHTML = "❌";
+			return 0;
+		}
+		else {
+			str.style = "border: 2px solid green; color : black;";
+			document.getElementById("s_password").innerHTML = "✔";
+			return 1;
+		}
+	}
+
+	function email_check() {
+		let str = document.getElementById('email');
+
+		if ((str.value).match(/\w+[@]\w+\.\w\w+/) == null) {
+			str.style = "border: 5px double red; color : red;";
+			document.getElementById("s_email").innerHTML = "❌";
+			return 0;
+		}
+		else {
+			str.style = "border: 2px solid green; color : black;";
+			document.getElementById("s_email").innerHTML = "✔";
+			return 1;
+		}
+	}
+	function reset() {
+		let str = document.getElementById('check');
+		str.style = "color : black;";
+		str.value = "Відправити";
+	}
+	function check_form() {
+		let str = document.getElementById('check');
+		if (email_check() * password_check() * index_check() * first_second_name('first_name') * first_second_name('second_name') * check_login()) {
+			str.style = "color : green;";
+			str.value = "Дані відправлено!"
+		}
+		else {
+			str.style = "color : red;";
+			str.value = "Неправильно введені дані!"
+		}
+		setTimeout(reset, 2500);
+	}
+
+</script>
+
+
+
+
+</html>
