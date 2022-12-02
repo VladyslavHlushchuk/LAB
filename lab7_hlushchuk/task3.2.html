@@ -1,0 +1,30 @@
+<html> 
+<head>  
+<script type = "text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"> </script>
+<link rel="stylesheet" type="text/css" href="./css/style.css"/>
+
+
+</head>
+
+<body>
+<script>
+
+$(document).ready(function() {
+	$("#first").bind('click', function() {
+		alert('Одинарний клік');
+
+	});
+	$("#second").bind('dblclick', function() {
+		alert('Подвійний клік');
+
+	});
+
+});
+</script>
+	<div>
+		<input type="button" id ='first' name="first" value="Клікніть один раз">
+		<input type="button" id='second' name="second" value="Клікніть два рази">
+	</div>
+	
+</body>
+</html>

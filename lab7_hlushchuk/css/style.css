@@ -1,0 +1,53 @@
+
+/* #main {
+    background: radial-gradient(white, #aa24e3);  
+  }
+  #main p a{
+  text-decoration: none;
+  font-size: 35px;
+  }
+  #main2 {
+    margin: 300px;
+  }
+  #main p :hover {
+      transition: 0.5s;
+      font-size: 50px;
+      color:purple;
+  
+  } */
+
+
+  body {
+    background-color:  #5e85c9; 
+  }
+  
+  .background {
+    background-color: red; 
+  }
+  #block{
+    width: 20%;
+    
+    border: rgb(0, 0, 183) solid 3px;
+  }
+  .block{
+    padding-left: 45%;
+  }
+  
+  #block2{
+    margin-left: 40%;
+    width: 20%; 
+  }
+  .block2{
+    background-color: rgb(1, 216, 1); 
+    border: 5px solid black;
+  }
+  .block21{
+    background-color: white; 
+    
+  }
+  
+  #text{
+    display: none;
+    font-size: 40px;
+  
+  }

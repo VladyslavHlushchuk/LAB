@@ -1,0 +1,25 @@
+<html> 
+<head>  
+<script type = "text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"> </script>
+
+<script>
+$(document).ready(function() {
+            $('.button').click(function() {
+                $("p:first").text("Перший абзац");
+                $("p:last").text("Останній абзац");
+            });
+        });
+</script>
+
+
+<body style="background-color: #5e85c9;">
+<h1> Контент сторінки </h1>
+<a href="#" class="button">Натисніть, щоб побачити приховані абзаци</a>
+<p id="first"></p>
+<p id="second">Текст</p>
+<p id="tree"></p>
+
+
+</body>
+
+</html> 

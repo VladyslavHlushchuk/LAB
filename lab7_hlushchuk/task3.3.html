@@ -1,0 +1,38 @@
+<html> 
+<head>  
+<script type = "text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"> </script>
+<link rel="stylesheet" type="text/css" href="./css/style.css"/>
+
+
+</head>
+<body>
+<script>
+	$(document).ready(function() {
+		$('#to_show').bind('click', function() {
+			$('#ukr').show()
+		});
+		$('#cat').bind('click', function() {
+			$('#ukr').hide()
+		});
+		$('#ukr').bind('mouseover', function() {
+			$('#text').show()
+		});
+		$('#ukr').bind('mouseout', function() {
+			$('#text').hide()
+		});
+
+	});
+
+
+</script>
+<div align="center">
+	<div id="to_show" style="color: white;">
+		Показати зображення
+	</div>
+	<div>
+		<img width="60%" height="40%" src="./img/ukr.png" style="display: none;" id="ukr">
+		<p id="text"><i>УКРАЇНА</i></p>
+	</div>
+</div>
+</body>
+</html>

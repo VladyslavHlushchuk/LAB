@@ -1,0 +1,28 @@
+<html> 
+<head>  
+<script type = "text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"> </script>
+<link rel="stylesheet" type="text/css" href="./css/style.css"/>
+<script>
+
+$(document).ready(function() {
+	$("#block2").bind('click', function() {
+		$('#block2').removeClass('block21');
+		$('#block2').addClass('block2');
+	});
+	$("#block2").bind('dblclick', function() {
+		$('#block2').removeClass('block2');
+		$('#block2').addClass('block21');
+	});
+
+});
+
+
+</script>
+</head>
+
+<body>
+	<div id="block2" class='block21' align="center">
+		Клікніть на цей блок!
+	</div>
+</body>
+</html>
