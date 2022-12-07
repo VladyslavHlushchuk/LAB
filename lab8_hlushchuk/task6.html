@@ -1,0 +1,132 @@
+<html> 
+<head>  
+<script type = "text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"> </script>
+<link rel="stylesheet" type="text/css" href="./style.css"/>
+<title>Лабораторна 8</title>
+
+</head>
+<body style="background: radial-gradient(rgb(255, 255, 255), #5e85c9); ">
+	<main id="main_anim">
+		<div id="blocks">
+			<div class="animation" id="animation0"></div>
+		</div>
+
+		<div id="button_div">
+			<p>Animation speed <input id="anim_speed" type="number" value="100"></p>
+			<p>Block number<input id="block_num" type="number" value="20" ></p>
+			<button id="button" >Animate</button>
+		</div>
+	</main>
+
+
+	<style>
+
+</style>
+
+
+</body>
+<script type="text/javascript">
+	screenWidth = window.screen.width;
+
+	let counter = 0; let to_iterate = 0;
+
+	$("#button").click(function (){
+	 $("#button").attr("disabled", true);
+	counter =0;
+	block_amount = parseInt($("#block_num").val());
+	anim_speed = parseInt($("#anim_speed").val());
+	// console.log("block_amount " + block_amount)
+	to_iterate = block_amount+1;
+	block_width = screenWidth/block_amount;
+	blocks_html="<div class='animation' id='animation0' style='width:" + block_width 
+	+ "; height:" + 0 /*block_width*/ + "'></div>";
+	for (var i = 0; i<block_amount; i++) {
+		blocks_html+="<div class='animation'  id='animation" + String(i+1) 
+			+"' style='left:" + String((i+1)*block_width) +
+			";width:" + block_width +"; height:" + 0 + " '></div>";
+	}
+	$("#blocks").html(blocks_html);
+
+	f_up();
+
+	});
+
+
+	function  f_up(){ 
+		if (counter<to_iterate){
+			randomColor = Math.floor(Math.random()*16777215).toString(16);
+			counter++;
+			// console.log("f_up " + counter +" < " + to_iterate);
+			$( ("#animation" + String(counter-1)) ).css('background-color',"#"+randomColor)
+			
+			$( ("#animation" + String(counter-1)) ).animate( { 
+				height: String((1.2+counter/5)*block_width) + "px",
+			 }, {duration : anim_speed, 
+	     		 complete: function(){
+	     		 	$( ("#animation" + String(counter-1)) ).animate( { 
+					marginBottom: String((5*block_width)/(counter*2)) + "px",
+				 }, {duration : anim_speed/2, 
+		     		 complete: function(){
+		     		 	$( ("#animation" + String(counter-1)) ).animate( { 
+					marginBottom: String(0) + "px",
+				 }, {duration : anim_speed/2, 
+		     		 complete: function(){
+
+	     		 	f_up()}
+			 		 }) 
+
+		     		}
+
+				 }) 
+
+	     		}
+			 }) 
+		}
+		else{
+
+			console.log("f_down");
+			f_down();
+		}
+	}
+
+	function f_down(){
+
+		if (counter>0){
+			counter--;
+		$( ("#animation" + String(counter)) ).animate( { 
+			height: String(block_width) + "px",
+
+		 },{duration : anim_speed, 
+	     		 complete: function(){
+	     		 	$( ("#animation" + String(counter)) ).css('background-color','grey');
+	     		 	f_down();
+	     		 	}
+			 } )  
+		
+		
+		}
+		else{
+			opacity();
+		}
+
+	}
+
+
+function opacity(){
+	if (counter<to_iterate){
+		counter++;
+	$( ("#animation" + String(counter-1)) ).animate( { 
+				opacity: "0",
+			 }, {duration : 10*(anim_speed/=2), 
+	     		 complete: function(){
+	     		 	opacity();
+	     		 }
+		});
+	}
+	else{
+		$("#button").attr("disabled", false);
+	}
+}
+
+</script>
+</html>

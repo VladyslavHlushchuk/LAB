@@ -1,0 +1,56 @@
+<html> 
+<head>  
+<script type = "text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"> </script>
+<link rel="stylesheet" type="text/css" href="./style.css"/>
+<title>Лабораторна 8</title>
+
+</head>
+<body style="background: radial-gradient(rgb(255, 255, 255), #5e85c9); ">
+	<main align="center" id="list">
+
+
+
+	</main>
+	<div align="center">
+		<form>
+			<input type="text" name="First" placeholder="First name">
+			<input type="text" name="Last" placeholder="Last name">
+			<p><button id="send_button" type="button" name="Send" >Send</button></p>
+		</form>
+		<p><b><span></span></b></p>
+	</div>
+</body>
+
+<script type="text/javascript">
+
+	name_list = ["Володимир Зеленський", "Владислав Глущук"];
+
+	list_to_show = "List of names : ";
+
+	for (let i = 0; i < name_list.length; i++) {
+		list_to_show += "<p>" + name_list[i] + "</p>";
+	}
+	
+	$("#list").html(list_to_show);
+
+
+  $( "#send_button" ).click(function(){ 
+    var name = $( "form input" ).map(function(){ 
+      return $( this ).val(); 
+    }).get().join( " " ); 
+	  
+ 	if ($.inArray(name, name_list) !=-1){
+ 		in_list = "You are in list!"
+ 	}
+	else{
+		in_list = "You are not in list!"
+ 	}
+
+	 $( "span" ).html("Hello " + name + "! " + in_list );
+
+	});
+
+	    
+</script>
+
+</html>

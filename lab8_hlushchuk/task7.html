@@ -1,0 +1,34 @@
+<html> 
+<head>  
+<script type = "text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"> </script>
+<link rel="stylesheet" type="text/css" href="./style.css"/>
+<title>Лабораторна 8</title>
+
+</head>
+<body style="background: radial-gradient(rgb(255, 255, 255), #5e85c9); ">
+	<main align="center">
+		<div>
+			<img id="cat" src="./img/cat.jpg"  width="500" height="500">
+		</div>
+		<div>
+			<button id="slideDown">slideDown</button>
+			<button id="slideUp">slideUp</button>
+			<button id="hide">hide</button>
+		</div>
+	</main>
+</body>
+
+<script type="text/javascript">
+	$( document ).ready(function(){
+    $( "#slideDown" ).click(function(){
+        $( "#cat" ).slideDown(500,"swing");
+    });
+    $( "#slideUp" ).click(function(){
+        $( "#cat" ).slideUp( 500, "linear");
+    });
+    $( "#hide" ).click(function(){
+        $( "#cat" ).hide( 10, "linear");
+    });
+});
+</script>
+</html>

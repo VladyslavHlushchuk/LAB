@@ -1,0 +1,59 @@
+<html> 
+<head>  
+<script type = "text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"> </script>
+<!-- <link rel="stylesheet" type="text/css" href="./style.css"/> -->
+<title>Лабораторна 8</title>
+
+</head>
+<body style="background: radial-gradient(rgb(255, 255, 255), #5e85c9); ">
+
+
+<div align="center">
+<div style="width: 20%;">
+	<p id="task1">Клікніть на кнопку щоб додати одного смайлика 🙄</p>
+	<p><input id="task1_button" type="button" value="Додати"></p>
+</div>
+
+
+<div style="width: 20%;">
+	<p id="task2">Клікніть на кнопку щоб видалити одного смайлика 🙄</p>
+	<p><input id="task2_button" type="button" value="Видалити"></p>
+</div>
+
+
+<div>
+	<img id="cat"  src="./img/cat.jpg"  height="200" alt="Мурчик">
+	<p>Клікніть на кнопку щоб зменшити висоту картинки</p>
+	<p><input id="task3_button" type="button" value="Зменшити висоту картинки"></p>
+</div>
+
+<div>
+	<p id="task4">Клікніть на кнопку щоб дізнатися ширину картинки</p>
+	<p><input id="task4_button" type="button" value="Ширина картинки"></p>
+</div>
+
+</div>
+
+<script type="text/javascript">
+	$( "#task1_button" ).click(function() {
+	  $( "#task1" ).before( "<div id='to_remove'>🙄</div>" ); 
+	});
+
+	$( "#task2_button" ).click(function() {
+	  $( "#to_remove" ).remove( ":contains('🙄')" ); 
+	});
+
+
+	$( "#task3_button" ).click(function() {
+	  $( "#cat" ).height(function() {
+	  	return $( "#cat" ).height() -10;
+	  }); 
+	});
+
+	$( "#task4_button" ).click(function() {
+		alert($( "#cat" ).outerWidth());
+
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<html> 
+<head>  
+<script type = "text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"> </script>
+<link rel="stylesheet" type="text/css" href="./style.css"/>
+<title>Лабораторна 8</title>
+
+</head>
+<body style="background: radial-gradient(rgb(255, 255, 255), #5e85c9); ">
+	<main style="padding-left:40%; width: 30%">
+		
+	
+<!-- <button class="withSelector">selector</button>
+		<button class="withFunction">function</button> -->
+		<div>
+		<ul>
+			<li class="modify" >Будинок 1</li>
+			<li>Будинок 2</li>
+			<li>Будинок 3</li>
+			<li>Будинок 4
+			<ul>
+				<li>Поверх 1</li>
+				<li>Поверх 2</li>
+				<li>Поверх 3
+
+				<ul>
+					<li>Квартира 1</li>
+					<li>Квартира 2</li>
+					<li>Квартира 3</li>
+					<li>Квартира 4</li>
+					<li>Квартира 5</li>
+					<li>Квартира 6</li>
+				</ul></li>
+			</ul></li>
+
+		</ul>
+		</div>
+		<input style="margin-left: 10%;" id="button" type="button" value="Змінити ">
+	</main>
+</body>
+<script type="text/javascript">
+
+ $(document).ready(function () {
+            $("#button").click(function () {
+                $("li").filter(".modify").css("color", "#00ff44");
+
+                $("li").filter(function (index) {
+                    return ((index + 1) % 3 === 0)
+                }).css("color", "#00ff44");
+            });
+
+            $("#button").click(function () {
+                $("li").filter(".modify").html(function (index, content){
+            		return content + " modify "
+            	});
+
+                $("li").filter(function (index) {
+                    return ((index + 1) % 3 === 0)
+                }).html(function (index, content){
+            		return content + " modify "
+            	});
+            });
+        });
+
+</script>
+</html>
